@@ -1,0 +1,29 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Pytest cache
+.pytest_cache/
+.cache/
+
+# HTML report assets (generated, tidak perlu di-commit)
+reports/assets/
+
+# Temporary Office files
+~$*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temp Claude dirs
+tmpclaude-*
+
+# Env / secrets
+.env
+*.log
+
+# Windows reserved device names
+nul
+nul.*
