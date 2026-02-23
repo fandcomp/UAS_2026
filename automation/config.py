@@ -1,7 +1,11 @@
 # config.py - Konfigurasi Global untuk Test Otomasi DamnCRUD
 
-# URL Aplikasi (sesuaikan jika port atau path berbeda)
-BASE_URL = "http://localhost:8080/DamnCRUD"
+import os
+
+# URL Aplikasi
+# - CI (GitHub Actions): BASE_URL=http://localhost:8080  (PHP server root = DamnCRUD/)
+# - Lokal XAMPP        : http://localhost:8080/DamnCRUD  (default fallback)
+BASE_URL = os.environ.get('BASE_URL', 'http://localhost:8080/DamnCRUD')
 
 # Kredensial Login Valid
 VALID_USERNAME = "admin"

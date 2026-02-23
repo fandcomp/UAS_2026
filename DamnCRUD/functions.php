@@ -1,10 +1,12 @@
 <?php
 
 function pdo_connect(){
-    $DATABASE_HOST = 'localhost';
-    $DATABASE_USER = 'root';
-    $DATABASE_PASS = '';
-    $DATABASE_NAME = 'badcrud';
+    // Baca konfigurasi dari environment variable (CI/CD), fallback ke nilai lokal
+    $DATABASE_HOST = getenv('DB_HOST') !== false ? getenv('DB_HOST') : 'localhost';
+    $DATABASE_USER = getenv('DB_USER') !== false ? getenv('DB_USER') : 'root';
+    $pass          = getenv('DB_PASS');
+    $DATABASE_PASS = ($pass !== false) ? $pass : '';
+    $DATABASE_NAME = getenv('DB_NAME') !== false ? getenv('DB_NAME') : 'badcrud';
     try {
     	return new PDO('mysql:host=' . $DATABASE_HOST . ';dbname=' . $DATABASE_NAME, $DATABASE_USER, $DATABASE_PASS);
     } catch (PDOException $exception) {
